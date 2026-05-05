@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>晴晴 Sunny — Uber Eats 策略顧問</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <style>
+        :root { --green: #06C167; --off-white: #FAFAFA; }
+        body { font-family: 'DM Sans', sans-serif; background: var(--off-white); overflow-x: hidden; }
+        .serif { font-family: 'DM Serif Display', serif; }
+        .glass {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px) saturate(160%);
+            -webkit-backdrop-filter: blur(20px) saturate(160%);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            border-radius: 24px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.05);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .glass:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .bg-glow {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
+            background: radial-gradient(circle at 10% 10%, rgba(6, 193, 103, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 90% 90%, rgba(6, 193, 103, 0.05) 0%, transparent 50%);
+        }
+        .contact-hub .hub-btn { transform: scale(0); opacity: 0; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .contact-hub:hover .hub-btn { transform: scale(1); opacity: 1; }
+    </style>
+</head>
+<body>
+    <div class="bg-glow"></div>
+    <nav class="fixed w-full z-50 bg-white/70 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-[#06C167] rounded-lg"></div>
+                <span class="font-bold text-lg tracking-tight">晴晴 Sunny</span>
+            </div>
+            <a href="https://forms.gle/eLQfx53Gs38jpfkAA" target="_blank" class="bg-[#06C167] text-white px-6 py-2 rounded-full font-bold text-sm hover:shadow-lg transition">立即預約</a>
+        </div>
+    </nav>
+    <section class="pt-32 pb-20 px-6">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <span class="text-[#06C167] font-bold tracking-widest text-xs uppercase mb-4 block">中彰花區域專屬顧問</span>
+                <h1 class="serif text-5xl md:text-7xl mb-6 leading-tight">未來的餐飲，<br><span class="text-[#06C167]">在您的掌心。</span></h1>
+                <p class="text-gray-600 text-lg mb-10 leading-relaxed max-w-md">不只是業務，更是您的數位資產策略夥伴。透過數據與視覺優化，協助您將餐飲品牌打造成平台上的標誌性存在。</p>
+                <div class="flex gap-4">
+                    <a href="https://forms.gle/eLQfx53Gs38jpfkAA" target="_blank" class="bg-[#06C167] text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl hover:scale-105 transition">開啟爆單計畫</a>
+                </div>
+            </div>
+            <div class="flex justify-center relative">
+                <div class="glass overflow-hidden relative shadow-2xl" style="width:320px; height:420px; padding:0;">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=1000" alt="Sunny" class="w-full h-full object-cover">
+                    <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent text-white">
+                        <div class="font-bold text-xl">晴晴 Sunny</div>
+                        <div class="text-sm text-green-400 font-bold">Uber Eats 合作顧問代表</div>
+                    </div>
+                </div>
+                <div class="absolute -z-10 w-80 h-80 border-2 border-dashed border-green-200 rounded-full animate-[spin_20s_linear_infinite]"></div>
+            </div>
+        </div>
+    </section>
+    <section class="py-20 bg-white/50">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="serif text-3xl mb-12 text-center">專業引路，讓您的品牌從此不同。</h2>
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <div class="glass p-8"><div class="text-3xl mb-4">📈</div><h3 class="font-bold mb-2">數據化營銷規劃</h3><p class="text-gray-500 text-sm">以數據驅動策略，精準掌握熱銷時段與客群偏好。</p></div>
+                <div class="glass p-8"><div class="text-3xl mb-4">📸</div><h3 class="font-bold mb-2">視覺美學優化</h3><p class="text-gray-500 text-sm">提供專業攝影與菜單排版建議，打造高轉化率的數位店面。</p></div>
+                <div class="glass p-8"><div class="text-3xl mb-4">🤝</div><h3 class="font-bold mb-2">在地深耕服務</h3><p class="text-gray-500 text-sm">深耕台中、彰化、花蓮，即時應對經營痛點，協助店家脫穎而出。</p></div>
+            </div>
+        </div>
+    </section>
+    <div class="fixed bottom-8 right-8 z-[999] contact-hub group flex flex-col items-center gap-4">
+        <a href="tel:0902697331" class="hub-btn w-12 h-12 bg-gray-800 text-white rounded-full flex items-center justify-center shadow-xl hover:scale-110 transition delay-150"><i class="fa-solid fa-phone"></i></a>
+        <a href="https://www.instagram.com/sunny.07.04/" target="_blank" class="hub-btn w-12 h-12 bg-gradient-to-tr from-yellow-500 via-red-500 to-purple-500 text-white rounded-full flex items-center justify-center shadow-xl hover:scale-110 transition delay-75"><i class="fa-brands fa-instagram text-xl"></i></a>
+        <a href="https://line.me/ti/p/xd__vmNemf" target="_blank" class="relative w-16 h-16 bg-[#06C755] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform active:scale-95"><span class="absolute inset-0 rounded-full bg-[#06C755] animate-ping opacity-20"></span><i class="fa-brands fa-line text-3xl"></i></a>
+    </div>
+    <footer class="bg-gray-900 text-white py-16 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="serif text-2xl mb-8">準備好開啟您的成長引擎了嗎？</h2>
+            <div class="flex flex-col items-center gap-4 text-gray-400 mb-12">
+                <a href="https://line.me/ti/p/xd__vmNemf" class="hover:text-[#06C167] transition">🆔 Line ID: xd__vmNemf</a>
+                <a href="tel:0902697331" class="hover:text-[#06C167] transition">📞 聯繫專線: 0902-697-331</a>
+                <a href="https://www.instagram.com/sunny.07.04/" class="hover:text-[#06C167] transition">📸 Instagram: @sunny.07.04</a>
+            </div>
+            <p class="text-xs text-gray-600 tracking-widest">© 2026 SUNNY CONSULTING. 中彰花區域特約策略代表</p>
+        </div>
+    </footer>
+</body>
+</html>
