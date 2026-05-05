@@ -3,115 +3,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SUNNY x Uber Eats | 1000.ver 旗艦官網</title>
+    <title>SUNNY STRATEGY | Uber Eats 旗艦策略顧問</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;800&family=Playfair+Display:ital,wght@0,900;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;800&family=Playfair+Display:ital,wght@0,900;1,900&family=Noto+Sans+TC:wght@300;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
-        :root { --ue-green: #06C167; --dark: #000000; }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--dark); color: #fff; overflow-x: hidden; }
+        :root { --ue-green: #06C167; --bg-dark: #000000; }
+        body { 
+            font-family: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif; 
+            background: var(--bg-dark); 
+            color: #fff; 
+            overflow-x: hidden;
+            letter-spacing: -0.01em;
+        }
         .serif { font-family: 'Playfair Display', serif; }
 
-        /* 1000分：強制強化版綠光流 */
-        .hero-bg {
+        /* 1000分：超強感知光流背景系統 */
+        .aurora-container {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
-            background: #000;
+            background: #000; overflow: hidden;
         }
-        .light-stream {
+        /* 第一道光：深層流動 */
+        .aurora-1 {
+            position: absolute; width: 120vw; height: 120vw;
+            top: -20%; left: -30%;
+            background: radial-gradient(circle at center, rgba(6, 193, 103, 0.18) 0%, transparent 60%);
+            border-radius: 45%;
+            animation: rotate-aurora 25s infinite linear;
+            filter: blur(80px);
+        }
+        /* 第二道光：亮部擴散 */
+        .aurora-2 {
             position: absolute; width: 100vw; height: 100vw;
-            /* 提高透明度與擴散範圍 */
-            background: radial-gradient(circle, rgba(6, 193, 103, 0.15) 0%, rgba(6, 193, 103, 0.05) 30%, transparent 70%);
-            border-radius: 50%; 
-            animation: move-stream 20s infinite alternate cubic-bezier(0.45, 0.05, 0.55, 0.95);
+            bottom: -30%; right: -20%;
+            background: radial-gradient(circle at center, rgba(6, 193, 103, 0.12) 0%, transparent 55%);
+            border-radius: 40%;
+            animation: rotate-aurora 18s infinite linear reverse;
+            filter: blur(100px);
         }
-        .light-stream-2 {
-            position: absolute; width: 80vw; height: 80vw;
-            background: radial-gradient(circle, rgba(6, 193, 103, 0.1) 0%, transparent 60%);
-            border-radius: 50%;
-            bottom: -10%; right: -10%;
-            animation: move-stream 15s infinite alternate-reverse cubic-bezier(0.45, 0.05, 0.55, 0.95);
-        }
-        @keyframes move-stream {
-            0% { transform: translate(-20%, -20%) scale(1); opacity: 0.3; }
-            50% { opacity: 0.7; }
-            100% { transform: translate(20%, 20%) scale(1.3); opacity: 0.4; }
+        @keyframes rotate-aurora {
+            from { transform: rotate(0deg) scale(1); }
+            to { transform: rotate(360deg) scale(1.2); }
         }
 
-        /* 玻璃擬態卡片強化 */
-        .ue-glass {
+        /* 重構：流光邊框卡片 */
+        .glass-panel {
             background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(50px) saturate(200%);
-            -webkit-backdrop-filter: blur(50px) saturate(200%);
-            border: 1px solid rgba(6, 193, 103, 0.2);
-            border-radius: 56px;
-            transition: all 0.8s ease;
+            backdrop-filter: blur(40px) saturate(200%);
+            -webkit-backdrop-filter: blur(40px) saturate(200%);
+            border: 1px solid rgba(6, 193, 103, 0.25);
+            border-radius: 50px;
+            position: relative;
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .glass-panel:hover {
+            border-color: var(--ue-green);
+            transform: translateY(-15px) rotateX(2deg);
+            box-shadow: 0 40px 100px rgba(6, 193, 103, 0.15);
         }
 
-        /* 標題發光效果強化 */
-        .glow-text {
-            background: linear-gradient(135deg, #fff 50%, var(--ue-green) 100%);
+        /* 標題渲染增強 */
+        .glow-title {
+            background: linear-gradient(135deg, #fff 40%, var(--ue-green) 100%);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 0 20px rgba(6, 193, 103, 0.4));
+            filter: drop-shadow(0 0 30px rgba(6, 193, 103, 0.35));
         }
 
-        .btn-glow {
-            box-shadow: 0 0 30px rgba(6, 193, 103, 0.3);
-            transition: all 0.5s ease;
+        /* 呼吸動畫 */
+        .pulse-btn {
+            box-shadow: 0 0 0 0 rgba(6, 193, 103, 0.4);
+            animation: pulse-ue 2s infinite;
         }
-        .btn-glow:hover { box-shadow: 0 0 50px rgba(6, 193, 103, 0.6); }
+        @keyframes pulse-ue {
+            0% { box-shadow: 0 0 0 0 rgba(6, 193, 103, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(6, 193, 103, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(6, 193, 103, 0); }
+        }
     </style>
 </head>
 <body>
-    <div class="hero-bg">
-        <div class="light-stream"></div>
-        <div class="light-stream-2"></div>
+    <div class="aurora-container">
+        <div class="aurora-1"></div>
+        <div class="aurora-2"></div>
     </div>
 
-    <nav class="fixed w-full z-[100] py-8 px-10 flex justify-between items-center backdrop-blur-lg">
-        <div class="flex items-center gap-4">
-            <span class="text-white font-black tracking-tighter text-2xl">Uber <span class="text-[#06C167]">Eats</span></span>
-            <span class="text-[10px] tracking-[0.4em] uppercase opacity-60 font-bold ml-4">Sunny Strategy</span>
+    <nav class="fixed w-full z-[100] py-8 px-12 flex justify-between items-center backdrop-blur-xl border-b border-white/5">
+        <div class="flex items-center gap-4 group cursor-pointer">
+            <span class="text-white font-black tracking-tighter text-3xl group-hover:text-[#06C167] transition-all">Uber <span class="font-light">Eats</span></span>
+            <div class="h-5 w-[1px] bg-white/20"></div>
+            <span class="text-[10px] tracking-[0.4em] uppercase font-bold opacity-60">Sunny Strategy®</span>
         </div>
-        <a href="https://line.me/ti/p/xd__vmNemf" target="_blank" class="bg-[#06C167] text-white px-8 py-3 rounded-full text-xs font-black tracking-widest btn-glow">免費諮詢</a>
+        <a href="https://line.me/ti/p/xd__vmNemf" target="_blank" class="bg-white text-black px-10 py-3 rounded-full text-[11px] font-black tracking-widest hover:bg-[#06C167] hover:text-white transition-all shadow-xl">CONTACT</a>
     </nav>
 
-    <section class="min-h-screen flex items-center justify-center px-6 pt-20">
-        <div class="max-w-7xl w-full grid md:grid-cols-2 gap-20 items-center">
-            <div data-aos="fade-right">
-                <p class="text-[#06C167] font-bold tracking-[0.5em] text-[10px] uppercase mb-8">台中 | 彰化 | 花蓮 策略中心</p>
-                <h1 class="serif text-[5rem] md:text-[9rem] leading-[0.8] italic font-black mb-12 glow-text">
-                    Beyond <br> <span class="text-white">Delivery.</span>
+    <section class="min-h-screen flex items-center justify-center px-6 relative">
+        <div class="max-w-7xl w-full grid lg:grid-cols-2 gap-20 items-center">
+            <div data-aos="fade-right" data-aos-duration="1200">
+                <div class="flex items-center gap-3 mb-10">
+                    <span class="w-12 h-[1px] bg-[#06C167] shadow-[0_0_10px_#06C167]"></span>
+                    <p class="text-[#06C167] font-extrabold tracking-[0.5em] text-[10px] uppercase">中彰花區域策略中心</p>
+                </div>
+                <h1 class="serif text-[5.5rem] md:text-[9.5rem] leading-[0.85] italic font-black mb-12 glow-title">
+                    Empire <br> <span class="text-white">Builder.</span>
                 </h1>
-                <p class="text-gray-400 text-xl md:text-2xl mb-16 max-w-md leading-relaxed font-light">
-                    透過<span class="text-white font-bold">數據美學</span>與市場心理，我們在數位世界為您重建品牌帝國。
+                <p class="text-gray-400 text-xl md:text-2xl mb-16 max-w-md leading-relaxed font-light italic">
+                    不僅是送餐，更是在數位世界為您<span class="text-white font-bold not-italic">重建品牌競爭力</span>。
                 </p>
-                <a href="https://line.me/ti/p/xd__vmNemf" target="_blank" class="bg-[#06C167] text-white px-14 py-6 rounded-full font-black text-sm tracking-[0.3em] inline-block">開啟爆單計畫</a>
-            </div>
-
-            <div class="relative group" data-aos="zoom-out">
-                <div class="ue-glass overflow-hidden relative" style="height: 600px;">
-                    <img src="https://i.postimg.cc/QKhwt7wM/Screenshot-20260506-003930-LINE-2.jpg" alt="Sunny" class="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-1000">
-                    <div class="absolute bottom-12 left-12 text-white">
-                        <p class="serif italic text-6xl mb-2">Sunny</p>
-                        <p class="text-[#06C167] font-bold tracking-[0.5em] text-[10px]">ELITE STRATEGIC DIRECTOR</p>
+                <div class="flex flex-wrap gap-10 items-center">
+                    <a href="https://line.me/ti/p/xd__vmNemf" target="_blank" class="bg-[#06C167] text-white px-16 py-7 rounded-full font-black text-sm tracking-[0.3em] pulse-btn">開啟爆單計畫</a>
+                    <div class="border-l border-white/20 pl-10">
+                        <p class="text-white font-bold text-xs tracking-widest uppercase">Certified Delegate</p>
+                        <p class="text-gray-500 text-[10px] tracking-widest">官方認證 · 頂級顧問</p>
                     </div>
                 </div>
+            </div>
+
+            <div class="relative flex justify-center" data-aos="zoom-out-left" data-aos-duration="1500">
+                <div class="glass-panel overflow-hidden relative shadow-2xl" style="width: 360px; height: 560px;">
+                    <img src="https://i.postimg.cc/QKhwt7wM/Screenshot-20260506-003930-LINE-2.jpg" alt="Sunny" class="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-1000 hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
+                    <div class="absolute bottom-12 left-12">
+                        <p class="serif italic text-6xl mb-4">Sunny</p>
+                        <p class="text-[#06C167] font-bold tracking-[0.5em] text-[10px] uppercase">Strategic Director</p>
+                    </div>
+                </div>
+                <div class="absolute -z-10 -top-10 -right-10 w-64 h-64 bg-green-900/20 rounded-full blur-3xl animate-pulse"></div>
             </div>
         </div>
     </section>
 
     <div class="fixed bottom-12 right-12 z-[1000] flex flex-col gap-8">
-        <a href="https://www.instagram.com/sunny.07.04/" target="_blank" class="w-16 h-16 ue-glass flex items-center justify-center rounded-full text-white hover:text-[#06C167] transition-all">
+        <a href="https://www.instagram.com/sunny.07.04/" target="_blank" class="w-16 h-16 glass-panel flex items-center justify-center rounded-full text-white hover:text-pink-500 transition-all">
             <i class="fa-brands fa-instagram text-2xl"></i>
         </a>
-        <a href="https://line.me/ti/p/xd__vmNemf" target="_blank" class="w-24 h-24 bg-[#06C755] rounded-full flex items-center justify-center text-white shadow-2xl hover:scale-110 active:scale-95 transition-all">
+        <a href="https://line.me/ti/p/xd__vmNemf" target="_blank" class="w-24 h-24 bg-[#06C755] rounded-full flex items-center justify-center text-white shadow-2xl hover:scale-110 transition-all active:scale-95">
             <i class="fa-brands fa-line text-5xl"></i>
         </a>
     </div>
 
+    <footer class="py-40 border-t border-white/5 text-center">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="flex justify-center items-center gap-4 mb-16 opacity-30">
+                <span class="text-white font-black tracking-tighter text-xl">Uber Eats</span>
+                <span class="text-xs tracking-widest font-bold">OFFICIAL STRATEGY</span>
+            </div>
+            <h2 class="serif italic text-5xl mb-12">Empower Your Vision.</h2>
+            <div class="flex justify-center gap-16 text-[10px] tracking-[0.4em] font-bold text-gray-500 mb-20 uppercase">
+                <a href="tel:0902697331" class="hover:text-white transition">0902 697 331</a>
+                <a href="https://www.instagram.com/sunny.07.04/" target="_blank" class="hover:text-white transition">Instagram</a>
+                <span class="opacity-20 text-white">TC | CH | HL</span>
+            </div>
+            <p class="text-[8px] tracking-[1.5em] text-gray-800 uppercase font-black leading-loose">
+                © 2026 SUNNY STRATEGY GROUP. UNRIVALED CONSULTANCY.
+            </p>
+        </div>
+    </footer>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>AOS.init({ duration: 1500, once: true });</script>
+    <script>
+        AOS.init({ duration: 1500, once: true, easing: 'ease-out-quint' });
+        // 增加視差滾動效果
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            document.querySelector('.aurora-1').style.transform = `rotate(${scrolled * 0.1}deg) scale(${1 + scrolled * 0.0005})`;
+            document.querySelector('.aurora-2').style.transform = `rotate(-${scrolled * 0.15}deg) scale(${1 + scrolled * 0.0005})`;
+        });
+    </script>
 </body>
 </html>
